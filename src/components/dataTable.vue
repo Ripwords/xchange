@@ -183,6 +183,6 @@ watchEffect(() => {
 
 <style>
 input {
-  font-size: 30px !important;
+  font-size: 16.2px !important;
 }
 </style>
