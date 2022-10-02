@@ -7,7 +7,6 @@ const pagination = ref()
 
 const emit = defineEmits(['updateTotal'])
 
-// get data from api using fetch
 const req = await fetch(`https://api.exchangerate.host/convert?from=${store.currency}&to=${store.convertedCurrency}`)
 const res = await req.json()
 store.rate = res.info.rate
@@ -28,11 +27,6 @@ store.data.forEach((value, index) => {
   })
 })
 const columns = ref([
-  // {
-  //   title: 'No',
-  //   key: 'no',
-  //   width: '10%'
-  // },
   {
     title: 'Name',
     key: 'name',
@@ -111,18 +105,17 @@ watch(openModal, () => {
 })
 
 watch([() => store.currency, () => store.convertedCurrency], async () => {
-  // get data from api using fetch
   const req = await fetch(`https://api.exchangerate.host/convert?from=${store.currency}&to=${store.convertedCurrency}`)
   const res = await req.json()
   store.rate = res.info.rate
   console.log("YOOOO")
-  columns.value[2] = {
+  columns.value[1] = {
     title: `${store.currency}`,
     key: 'price',
     width: '45',
     sorter: (a: any, b: any) => a.price - b.price
   }
-  columns.value[3] = {
+  columns.value[2] = {
     title: `${store.convertedCurrency}`,
     key: 'convertedPrice',
     width: '45',
