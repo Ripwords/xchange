@@ -40,9 +40,12 @@ const handleUpdate = (val: any) => {
 </template>
 
 <style>
-input[type='text'],
-input[type='number'],
-textarea {
-  font-size: 16px;
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
 }
 </style>
