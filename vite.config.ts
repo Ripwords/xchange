@@ -19,7 +19,7 @@ export default defineConfig({
   plugins: [
     vue(),
     WindiCSS(),
-    Icons(),
+    Icons({}),
     Components({
       dirs: ['src/components'],
       resolvers: [
@@ -34,6 +34,10 @@ export default defineConfig({
       dts: 'src/auto-imports.d.ts'
     }),
     VitePWA({
+      registerType: 'autoUpdate',
+      devOptions: {
+        enabled: true
+      },
       base: '/',
       srcDir: 'src',
       manifest: {

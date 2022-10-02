@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRegisterSW } from 'virtual:pwa-register/vue'
+import { useRegisterSW } from 'virtual:pwa-register'
 
 const {
   offlineReady,
@@ -33,12 +33,14 @@ const close = async () => {
     color: rgb(222, 222, 222);
   }
 }
+
 @media (prefers-color-scheme: light) {
   .pwa-toast {
     background-color: rgb(255, 255, 255);
     color: #1e1e1e;
   }
 }
+
 .pwa-toast {
   position: fixed;
   right: 0;
@@ -51,10 +53,12 @@ const close = async () => {
   text-align: left;
   box-shadow: 3px 4px 5px 0 #8885;
 }
+
 .pwa-toast .message {
   margin: 8px;
   margin-top: 4px;
 }
+
 .pwa-toast button {
   border: 1px solid #8885;
   outline: none;

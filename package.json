@@ -1,6 +1,6 @@
 {
-  "name": "vue-template",
-  "version": "0.0.0",
+  "name": "xchng",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite --open",
     "build": "vue-tsc --noEmit && vite build",
