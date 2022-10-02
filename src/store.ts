@@ -4,11 +4,11 @@ import { T } from './interface'
 
 export const mainStore = defineStore('mainStore', {
   state: () => ({
-    pageLimit: 5,
+    pageLimit: useStorage('pageLimit', "5"),
     data: useStorage('data', [] as T[]),
-    currency: "TWD",
-    convertedCurrency: "MYR",
-    rate: 1,
+    currency: useStorage('currency', "TWD"),
+    convertedCurrency: useStorage('convertedCurrency', "MYR"),
+    rate: useStorage('rate', 1),
     currencies: [
       {
         label: "AED",

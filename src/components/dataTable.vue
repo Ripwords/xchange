@@ -3,14 +3,12 @@ import { mainStore } from '@/store'
 import { NButton } from 'naive-ui'
 
 const store = mainStore()
-const currency = store.currency
-const convertedCurrency = store.convertedCurrency
 const pagination = ref()
 
 const emit = defineEmits(['updateTotal'])
 
 // get data from api using fetch
-const req = await fetch(`https://api.exchangerate.host/convert?from=${currency}&to=${convertedCurrency}`)
+const req = await fetch(`https://api.exchangerate.host/convert?from=${store.currency}&to=${store.convertedCurrency}`)
 const res = await req.json()
 store.rate = res.info.rate
 
@@ -29,7 +27,7 @@ store.data.forEach((value, index) => {
     convertedPrice: (Number(value.Amount) * store.rate).toFixed(2)
   })
 })
-const columns = [
+const columns = ref([
   {
     title: 'No.',
     key: 'no',
@@ -43,13 +41,13 @@ const columns = [
     sorter: 'default'
   },
   {
-    title: `${currency}`,
+    title: `${store.currency}`,
     key: 'price',
     width: '45',
     sorter: (a: any, b: any) => a.price - b.price
   },
   {
-    title: `${convertedCurrency}`,
+    title: `${store.convertedCurrency}`,
     key: 'convertedPrice',
     width: '45',
     sorter: (a: any, b: any) => a.convertedPrice - b.convertedPrice
@@ -77,7 +75,7 @@ const columns = [
       )
     }
   }
-]
+])
 
 const addItem = () => {
   store.data.push({
@@ -113,8 +111,31 @@ watch(openModal, () => {
   }
 })
 
+watch([() => store.currency, () => store.convertedCurrency], async () => {
+  // get data from api using fetch
+  const req = await fetch(`https://api.exchangerate.host/convert?from=${store.currency}&to=${store.convertedCurrency}`)
+  const res = await req.json()
+  store.rate = res.info.rate
+  console.log("YOOOO")
+  columns.value[2] = {
+    title: `${store.currency}`,
+    key: 'price',
+    width: '45',
+    sorter: (a: any, b: any) => a.price - b.price
+  }
+  columns.value[3] = {
+    title: `${store.convertedCurrency}`,
+    key: 'convertedPrice',
+    width: '45',
+    sorter: (a: any, b: any) => a.convertedPrice - b.convertedPrice
+  }
+  tableData.value.forEach((value: any) => {
+    value.convertedPrice = (Number(value.price) * store.rate).toFixed(2)
+  })
+})
+
 watchEffect(() => {
-  pagination.value = { pageSize: store.pageLimit }
+  pagination.value = { pageSize: Number(store.pageLimit) }
   if (store.data.length >= 0) {
     emit('updateTotal', summary)
   }
