@@ -182,7 +182,7 @@ watchEffect(() => {
 </template>
 
 <style>
-n-input {
-  font-size: 16px!important;
+input {
+  font-size: 30px !important;
 }
 </style>
