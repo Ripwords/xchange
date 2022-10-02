@@ -180,3 +180,9 @@ watchEffect(() => {
     <i-ic:baseline-settings-suggest />
   </n-button>
 </template>
+
+<style>
+n-input {
+  font-size: 16.1px;
+}
+</style>

@@ -34,16 +34,16 @@ export default defineConfig({
       dts: 'src/auto-imports.d.ts'
     }),
     VitePWA({
-      registerType: 'autoUpdate',
-      devOptions: {
-        enabled: true
-      },
+      // registerType: 'autoUpdate',
+      // devOptions: {
+      //   enabled: true
+      // },
       base: '/',
       srcDir: 'src',
       manifest: {
-        name: "",
-        short_name: "",
-        theme_color: "",
+        name: "xchange",
+        short_name: "xchnge",
+        theme_color: "#121212",
         start_url: "/",
         icons: [
           {

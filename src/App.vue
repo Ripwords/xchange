@@ -38,15 +38,3 @@ const handleUpdate = (val: any) => {
     <ReloadPrompt />
   </n-config-provider>
 </template>
-
-<style>
-body {
-  font-size: 16px;
-}
-
-/* Set input inheritance */
-
-input {
-  font-size: inherit;
-}
-</style>
