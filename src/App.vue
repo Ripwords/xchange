@@ -40,12 +40,13 @@ const handleUpdate = (val: any) => {
 </template>
 
 <style>
-@media screen and (-webkit-min-device-pixel-ratio:0) {
+body {
+  font-size: 16px;
+}
 
-  select,
-  textarea,
-  input {
-    font-size: 16px;
-  }
+/* Set input inheritance */
+
+input {
+  font-size: inherit;
 }
 </style>
