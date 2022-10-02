@@ -38,3 +38,11 @@ const handleUpdate = (val: any) => {
     <ReloadPrompt />
   </n-config-provider>
 </template>
+
+<style>
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: 16px;
+}
+</style>
