@@ -27,18 +27,9 @@ const close = async () => {
 </template>
 
 <style scoped>
-@media (prefers-color-scheme: dark) {
-  .pwa-toast {
-    background-color: #1e1e1e;
-    color: rgb(222, 222, 222);
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  .pwa-toast {
-    background-color: rgb(255, 255, 255);
-    color: #1e1e1e;
-  }
+.pwa-toast {
+  background-color: #1e1e1e;
+  color: rgb(222, 222, 222);
 }
 
 .pwa-toast {

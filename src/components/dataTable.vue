@@ -28,34 +28,33 @@ store.data.forEach((value, index) => {
   })
 })
 const columns = ref([
-  {
-    title: 'No.',
-    key: 'no',
-    width: '40',
-    sorter: (a: any, b: any) => a.no - b.no
-  },
+  // {
+  //   title: 'No',
+  //   key: 'no',
+  //   width: '10%'
+  // },
   {
     title: 'Name',
     key: 'name',
-    width: '160',
+    width: '35%',
     sorter: 'default'
   },
   {
     title: `${store.currency}`,
     key: 'price',
-    width: '45',
+    width: '15%',
     sorter: (a: any, b: any) => a.price - b.price
   },
   {
     title: `${store.convertedCurrency}`,
     key: 'convertedPrice',
-    width: '45',
+    width: '36%',
     sorter: (a: any, b: any) => a.convertedPrice - b.convertedPrice
   },
   {
     title: 'Del',
     key: 'remove',
-    width: 30,
+    width: '9%',
     render(row: any) {
       return h(
         NButton,
@@ -143,7 +142,8 @@ watchEffect(() => {
 </script>
 
 <template>
-  <n-data-table class="mt-5" :data="tableData" :columns="columns" :pagination="pagination" :max-height="850" />
+  <n-data-table class="mt-5" :scroll-x="550" :data="tableData" :columns="columns" :pagination="pagination"
+    :max-height="850" />
   <n-modal v-model:show="openModal">
     <div class="flex justify-center mt-30 w-250 max-w-[500px]">
       <n-card title="Add Item">

@@ -15,7 +15,7 @@ const handleUpdate = (val: any) => {
 
 <template>
   <n-config-provider :theme="darkTheme">
-    <div class="w-85vw max-w-[750px] mx-auto my-5">
+    <div class="w-95vw max-w-[750px] mx-auto my-5">
       <n-card title="xChange">
         <div class="flex justify-end">
           <n-h4 class="h-1">
