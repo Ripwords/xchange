@@ -1,13 +1,32 @@
 <script lang="ts" setup>
 import { darkTheme } from 'naive-ui'
+import { mainStore } from './store'
+
+const store = mainStore()
+
+const total = ref()
+const convertedTotal = ref()
+
+const handleUpdate = (val: any) => {
+  total.value = val.value.total
+  convertedTotal.value = val.value.convertedTotal
+}
 </script>
 
 <template>
   <n-config-provider :theme="darkTheme">
     <div class="w-85vw max-w-[750px] mx-auto my-5">
-      <n-card title="xChange List" />
+      <n-card title="xChange">
+        <div class="flex justify-end">
+          <n-h4 class="h-1">
+            {{ store.currency }}: {{ total }}
+            &nbsp;&nbsp;&nbsp;
+            {{ store.convertedCurrency }}: {{ convertedTotal }}
+          </n-h4>
+        </div>
+      </n-card>
       <Suspense>
-        <dataTable />
+        <dataTable @updateTotal="handleUpdate" />
         <template #fallback>
           <div class="mt-7 flex justify-center">
             <n-spin />

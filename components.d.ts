@@ -17,6 +17,7 @@ declare module 'vue' {
     NGlobalStyle: typeof import('naive-ui')['NGlobalStyle']
     NH1: typeof import('naive-ui')['NH1']
     NH3: typeof import('naive-ui')['NH3']
+    NH4: typeof import('naive-ui')['NH4']
     NInput: typeof import('naive-ui')['NInput']
     NModal: typeof import('naive-ui')['NModal']
     NSelect: typeof import('naive-ui')['NSelect']

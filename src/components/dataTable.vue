@@ -7,6 +7,8 @@ const currency = store.currency
 const convertedCurrency = store.convertedCurrency
 const pagination = ref()
 
+const emit = defineEmits(['updateTotal'])
+
 // get data from api using fetch
 const req = await fetch(`https://api.exchangerate.host/convert?from=${currency}&to=${convertedCurrency}`)
 const res = await req.json()
@@ -91,6 +93,19 @@ const addItem = () => {
   openModal.value = false
 }
 
+const summary = computed(() => {
+  let total = 0
+  let convertedTotal = 0
+  tableData.value.forEach((value: any) => {
+    total += Number(value.price)
+    convertedTotal += Number(value.convertedPrice)
+  })
+  return {
+    total: total.toFixed(2),
+    convertedTotal: convertedTotal.toFixed(2)
+  }
+})
+
 watch(openModal, () => {
   if (!openModal.value) {
     addName.value = ''
@@ -100,6 +115,9 @@ watch(openModal, () => {
 
 watchEffect(() => {
   pagination.value = { pageSize: store.pageLimit }
+  if (store.data.length >= 0) {
+    emit('updateTotal', summary)
+  }
 })
 </script>
 
