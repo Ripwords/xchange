@@ -5,7 +5,7 @@
     "dev": "vite --open",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
-    "assets": "cd public && pwa-asset-generator Logo.png ./img/icons && cd .."
+    "assets": "cd public && pwa-asset-generator -p 0% Logo.png ./img/icons && cd .."
   },
   "dependencies": {
     "@vueuse/core": "^9.3.0",
