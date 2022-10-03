@@ -108,17 +108,16 @@ watch([() => store.currency, () => store.convertedCurrency], async () => {
   const req = await fetch(`https://api.exchangerate.host/convert?from=${store.currency}&to=${store.convertedCurrency}`)
   const res = await req.json()
   store.rate = res.info.rate
-  console.log("YOOOO")
   columns.value[1] = {
     title: `${store.currency}`,
     key: 'price',
-    width: '45',
+    width: '15%',
     sorter: (a: any, b: any) => a.price - b.price
   }
   columns.value[2] = {
     title: `${store.convertedCurrency}`,
     key: 'convertedPrice',
-    width: '45',
+    width: '36%',
     sorter: (a: any, b: any) => a.convertedPrice - b.convertedPrice
   }
   tableData.value.forEach((value: any) => {
