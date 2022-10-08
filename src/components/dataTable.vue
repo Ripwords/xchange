@@ -30,13 +30,13 @@ const columns = ref([
   {
     title: 'Name',
     key: 'name',
-    width: '200',
+    width: '230',
     sorter: 'default'
   },
   {
     title: `${store.currency}`,
     key: 'price',
-    width: '70',
+    width: '80',
     sorter: (a: any, b: any) => a.price - b.price
   },
   {
