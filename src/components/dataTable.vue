@@ -30,25 +30,25 @@ const columns = ref([
   {
     title: 'Name',
     key: 'name',
-    width: '35%',
+    width: '200',
     sorter: 'default'
   },
   {
     title: `${store.currency}`,
     key: 'price',
-    width: '15%',
+    width: '70',
     sorter: (a: any, b: any) => a.price - b.price
   },
   {
     title: `${store.convertedCurrency}`,
     key: 'convertedPrice',
-    width: '36%',
+    width: '95',
     sorter: (a: any, b: any) => a.convertedPrice - b.convertedPrice
   },
   {
     title: 'Del',
     key: 'remove',
-    width: '9%',
+    width: '50',
     render(row: any) {
       return h(
         NButton,
@@ -134,7 +134,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <n-data-table class="mt-5" :scroll-x="550" :data="tableData" :columns="columns" :pagination="pagination"
+  <n-data-table class="mt-5" :scroll-x="450" :data="tableData" :columns="columns" :pagination="pagination"
     :max-height="850" />
   <n-modal v-model:show="openModal">
     <div class="flex justify-center mt-30 w-250 max-w-[500px]">

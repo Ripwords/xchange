@@ -34,10 +34,9 @@ export default defineConfig({
       dts: 'src/auto-imports.d.ts'
     }),
     VitePWA({
-      // registerType: 'autoUpdate',
-      // devOptions: {
-      //   enabled: true
-      // },
+      devOptions: {
+        enabled: true
+      },
       base: '/',
       srcDir: 'src',
       manifest: {
